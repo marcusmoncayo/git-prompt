@@ -31,14 +31,11 @@ function cleanliness_color {
   fi
 }
 
-function current_dir_name {
-  echo -e "${PWD##*/}"
-}
-
 function current_time {
   echo -e $(date +%H:%M)
 }
 
 # This is the string that will be printed out to the console
-export PS1="\[${NORMAL_COLOR}\]\h:`current_dir_name``parse_git_branch`\[${NORMAL_COLOR}\] 🍄  "
+PS1="$(current_time) \h:\W\[$(cleanliness_color)\]$(parse_git_branch)\[${NORMAL_COLOR}\] 🍄  "
+
 
