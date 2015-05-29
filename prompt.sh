@@ -35,7 +35,11 @@ function current_time {
   echo -e $(date +%H:%M)
 }
 
+function current_dir_name {
+  echo -e "${PWD##*/}"
+}
+
 # This is the string that will be printed out to the console
-PS1="$(current_time) \h:\W\[$(cleanliness_color)\]$(parse_git_branch)\[${NORMAL_COLOR}\] 🍄  "
+PS1='`current_time` `whoami`:`current_dir_name`\[$(cleanliness_color)\]$(parse_git_branch)\[${NORMAL_COLOR}\] 🍄  '
 
 
